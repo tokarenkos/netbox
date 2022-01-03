@@ -33,6 +33,9 @@ OBJ_TYPE_CHOICES = (
         ('cluster', 'Clusters'),
         ('virtualmachine', 'Virtual Machines'),
     )),
+    ('Other', (
+        ('tag', 'Tags'),
+    )),
 )
 
 

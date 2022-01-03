@@ -22,6 +22,9 @@ from utilities.utils import count_related
 from virtualization.filtersets import ClusterFilterSet, VirtualMachineFilterSet
 from virtualization.models import Cluster, VirtualMachine
 from virtualization.tables import ClusterTable, VirtualMachineTable
+from extras.filtersets import TagFilterSet
+from extras.models import Tag
+from extras.tables import TagTable
 
 SEARCH_MAX_RESULTS = 15
 SEARCH_TYPES = OrderedDict((
@@ -176,5 +179,12 @@ SEARCH_TYPES = OrderedDict((
         'filterset': TenantFilterSet,
         'table': TenantTable,
         'url': 'tenancy:tenant_list',
+    }),
+    # Other
+    ('tag', {
+        'queryset': Tag.objects.prefetch_related('prefix'),
+        'filterset': TagFilterSet,
+        'table': TagTable,
+        'url': 'extras:tag_list',
     }),
 ))
