@@ -182,7 +182,7 @@ SEARCH_TYPES = OrderedDict((
     }),
     # Other
     ('tag', {
-        'queryset': Tag.objects.prefetch_related('prefix'),
+        'queryset': Tag.objects.prefetch_related('prefix', 'ipaddress', 'vlan', 'device', 'location', 'site'),
         'filterset': TagFilterSet,
         'table': TagTable,
         'url': 'extras:tag_list',
